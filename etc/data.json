@@ -1,0 +1,44 @@
+{
+  "results": [
+    {
+      "id": 0,
+      "type": "bar",
+      "lat": 0,
+      "long": 0,
+      "title": "Berlin",
+      "desc": "Cras justo odio"
+    },
+    {
+      "id": 1,
+      "type": "bar",
+      "lat": 0,
+      "long": 0,
+      "title": "Moscow",
+      "desc": "Dapibus ac facilisis in"
+    },
+    {
+      "id": 2,
+      "type": "bar",
+      "lat": 0,
+      "long": 0,
+      "title": "New York",
+      "desc": "Morbi leo risus"
+    },
+    {
+      "id": 3,
+      "type": "bar",
+      "lat": 0,
+      "long": 0,
+      "title": "Rome",
+      "desc": "Porta ac consectetur ac"
+    },
+    {
+      "id": 4,
+      "type": "bar",
+      "lat": 0,
+      "long": 0,
+      "title": "London",
+      "desc": "Vestibulum at eros"
+    }
+  ]
+}
