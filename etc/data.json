@@ -2,31 +2,31 @@
   "results": [
     {
       "id": 0,
-      "type": "bar",
-      "lat": 55.7558260,
-      "long": 37.6173000,
+      "type": "party",
+      "lat": 55.7558,
+      "long": 37.6173,
       "title": "Moscow",
       "desc": "Dapibus ac facilisis in"
     },
     {
       "id": 1,
-      "type": "bar",
-      "lat": 52.5200070,
-      "long": 13.4049540,
+      "type": "culture",
+      "lat": 52.5200,
+      "long": 13.4050,
       "title": "Berlin",
       "desc": "Cras justo odio"
     },
     {
       "id": 2,
-      "type": "bar",
-      "lat": 40.7127750,
-      "long": -74.0059730,
+      "type": "business",
+      "lat": 40.7128,
+      "long": 74.0060,
       "title": "New York",
       "desc": "Morbi leo risus"
     },
     {
       "id": 3,
-      "type": "bar",
+      "type": "culture",
       "lat": 41.9027840,
       "long": 12.4963660,
       "title": "Rome",
@@ -34,9 +34,9 @@
     },
     {
       "id": 4,
-      "type": "bar",
-      "lat": 51.5073510,
-      "long": -0.1277580,
+      "type": "business",
+      "lat": 51.5074,
+      "long": 0.1278,
       "title": "London",
       "desc": "Vestibulum at eros"
     }

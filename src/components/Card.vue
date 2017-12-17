@@ -4,8 +4,9 @@
             border-variant="secondary"
             header-border-variant="secondary"
             style="max-width: 20rem;"
-            class="mb-2">
-      <p class="card-text">
+            class="mb-2"
+            @click="toggleShow">
+      <p class="card-text" v-if="show">
         Some quick example text to build on the card title and make up the bulk of the card's content.
       </p>
       <b-badge pill variant="info">{{type}}</b-badge>
@@ -26,9 +27,14 @@ export default {
   name: 'Card',
   data() {
     return {
-
+      show: false
     };
   },
+  methods: {
+    toggleShow() {
+      this.show = !this.show;
+    }
+  }
 };
 </script>
 

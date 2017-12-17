@@ -21,7 +21,7 @@ import Icon from 'vue-awesome/components/Icon';
 import 'vue-awesome/icons/location-arrow';
 import 'vue-awesome/icons/spinner';
 
-import initialData from './../../etc/data.json';
+import store from '../store';
 
 import calcDistance from '../utils/distance';
 
@@ -38,6 +38,7 @@ export default {
         loading: false,
       },
       searchValue: '',
+      sharedState: store.state,
     };
   },
   computed: {
@@ -58,8 +59,12 @@ export default {
     },
     calculateDistance() {
       const userPos = this.geo;
-      const shortestDist = calcDistance(userPos, initialData.results);
-      console.log(shortestDist)
+      const pointsOfInterest = this.sharedState.initialData.results;
+      const nearestLocationId = calcDistance(userPos, pointsOfInterest);
+      this.setNearestLocation(nearestLocationId);
+    },
+    setNearestLocation(id) {
+      store.setNearestLocation(id);
     }
   },
 };

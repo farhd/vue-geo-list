@@ -24,7 +24,7 @@ export default {
     Icon,
     Card
   },
-  name: 'GeoSearch',
+  name: 'List',
   data() {
     return {
       results: initialData.results,
