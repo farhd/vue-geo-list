@@ -3,6 +3,7 @@
     <b-card :header="title"
             border-variant="secondary"
             header-border-variant="secondary"
+            :header-bg-variant="success ? 'success' : ''"
             style="max-width: 20rem;"
             class="mb-2"
             @click="toggleShow">
@@ -23,7 +24,7 @@ export default {
   components: {
     Icon
   },
-  props: ['title', 'type'],
+  props: ['title', 'type', 'success'],
   name: 'Card',
   data() {
     return {

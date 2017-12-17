@@ -3,7 +3,7 @@
     <b-input-group class="mb-3">
       <b-input-group-addon>Location</b-input-group-addon>
 
-      <b-form-input size="sm" placeholder="Your city" id="location" v-model="searchValue"/>
+      <b-form-input size="sm" placeholder="Latitude, longitude..." id="location" v-model="searchValue"/>
 
       <b-input-group-button>
         <b-button variant="outline-primary" @click="getGeoPos()">
@@ -33,15 +33,36 @@ export default {
   data() {
     return {
       geo: {
-        lat: 0,
-        long: 0,
+        lat: null,
+        long: null,
         loading: false,
       },
-      searchValue: '',
       sharedState: store.state,
     };
   },
   computed: {
+    searchValue: {
+      get() {
+        const lat = this.geo.lat;
+        const long = this.geo.long;
+
+        return lat && long ? [lat, long].join(', ') : '';
+      },
+      set(newValue) {
+        const pos = newValue.split(',')
+          .map(item => item.trim())
+          .filter(item => item.length > 0);
+        const lat = Number(pos[0]);
+        const long = Number(pos[1]);
+        if (pos.length == 2 && lat === lat && long === long) {
+          this.geo.lat = lat;
+          this.geo.long = long;
+        } else {
+          this.geo.lat = null;
+          this.geo.long = null;
+        }
+      },
+    }
   },
   methods: {
     getGeoPos() {
@@ -50,12 +71,8 @@ export default {
         const { latitude, longitude } = pos.coords;
         this.geo.lat = latitude;
         this.geo.long = longitude;
-        this.searchValue = [latitude, longitude].join(', ');
         this.geo.loading = false;
       });
-    },
-    getSuggestions() {
-      //this.$http.get(`https://api.teleport.org/api/cities/?search=${city}`)
     },
     calculateDistance() {
       const userPos = this.geo;

@@ -12,12 +12,19 @@
 import GeoSearch from './components/GeoSearch';
 import List from './components/List';
 
+import store from './store';
+
 export default {
   name: 'app',
   components: {
     GeoSearch,
     List
   },
+  data() {
+    return {
+      sharedState: store.state
+    }
+  }
 };
 </script>
 

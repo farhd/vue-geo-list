@@ -1,9 +1,11 @@
 <template>
-  <div class="result">
+  <div class="list">
     <div>
       <ul>
         <li v-for="result in results" :key="result.id">
-          <Card v-bind="result"/>
+          <Card
+            v-bind="result"
+            v-bind:success="result.id === nearestLocationId"/>
         </li>
       </ul>
     </div>
@@ -17,7 +19,7 @@ import 'vue-awesome/icons/spinner';
 
 import Card from './Card';
 
-import initialData from './../../etc/data.json';
+import store from '../store';
 
 export default {
   components: {
@@ -27,13 +29,9 @@ export default {
   name: 'List',
   data() {
     return {
-      results: initialData.results,
+      results: store.state.initialData.results,
+      nearestLocationId: store.state.nearestLocationId,
     };
-  },
-  methods: {
-    addResult(res) {
-      this.results.push(res);
-    }
   },
 };
 </script>
