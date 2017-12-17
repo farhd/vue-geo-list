@@ -3,40 +3,40 @@
     {
       "id": 0,
       "type": "bar",
-      "lat": 0,
-      "long": 0,
-      "title": "Berlin",
-      "desc": "Cras justo odio"
-    },
-    {
-      "id": 1,
-      "type": "bar",
-      "lat": 0,
-      "long": 0,
+      "lat": 55.7558260,
+      "long": 37.6173000,
       "title": "Moscow",
       "desc": "Dapibus ac facilisis in"
     },
     {
+      "id": 1,
+      "type": "bar",
+      "lat": 52.5200070,
+      "long": 13.4049540,
+      "title": "Berlin",
+      "desc": "Cras justo odio"
+    },
+    {
       "id": 2,
       "type": "bar",
-      "lat": 0,
-      "long": 0,
+      "lat": 40.7127750,
+      "long": -74.0059730,
       "title": "New York",
       "desc": "Morbi leo risus"
     },
     {
       "id": 3,
       "type": "bar",
-      "lat": 0,
-      "long": 0,
+      "lat": 41.9027840,
+      "long": 12.4963660,
       "title": "Rome",
       "desc": "Porta ac consectetur ac"
     },
     {
       "id": 4,
       "type": "bar",
-      "lat": 0,
-      "long": 0,
+      "lat": 51.5073510,
+      "long": -0.1277580,
       "title": "London",
       "desc": "Vestibulum at eros"
     }
