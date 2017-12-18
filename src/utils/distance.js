@@ -8,15 +8,11 @@ function calcDistance(target, arrWithVals) {
     const long2 = item.long;
     const id = item.id;
     const distance = getDistanceFromLatLonInKm(lat1, long1, lat2, long2);
-    console.log(distance)
     return { id, distance };
   });
   // find the smallest value from the distance array
   // Math.max.apply(Math, distances);
-  const distancesSorted = distances.sort((a, b) => {
-    return a.distance > b.distance
-  });
-  console.log(distancesSorted)
+  const distancesSorted = distances.sort((a, b) => a.distance > b.distance);
   const smallestDistance = distancesSorted[0];
   return smallestDistance.id;
 }

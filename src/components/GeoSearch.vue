@@ -1,19 +1,26 @@
 <template>
-  <div class="geo-search">
-    <b-input-group class="mb-3">
-      <b-input-group-addon>Location</b-input-group-addon>
+  <form class="geo-search" @submit.prevent="submit">
+    <b-container>
+      <b-input-group class="mb-3">
+        <b-input-group-addon>Location</b-input-group-addon>
 
-      <b-form-input size="sm" placeholder="Latitude, longitude..." id="location" v-model="searchValue"/>
+        <b-form-input
+          size="sm"
+          placeholder="Latitude, longitude..."
+          id="location"
+          v-model="searchValue"
+          required/>
 
-      <b-input-group-button>
-        <b-button variant="outline-primary" @click="getGeoPos()">
-          <icon name="location-arrow" v-if="!geo.loading"></icon>
-          <icon name="spinner" spin v-if="geo.loading"></icon>
-        </b-button>
-        <b-button variant="outline-success" size="sm" @click="calculateDistance()">Go</b-button>
-      </b-input-group-button>
-    </b-input-group>
-  </div>
+        <b-input-group-button>
+          <b-button variant="outline-primary" @click="getGeoPos()">
+            <icon name="location-arrow" v-if="!geo.loading"></icon>
+            <icon name="spinner" spin v-if="geo.loading"></icon>
+          </b-button>
+          <b-button variant="outline-success" size="sm" @click="submit">Go</b-button>
+        </b-input-group-button>
+      </b-input-group>
+    </b-container>
+  </form>
 </template>
 
 <script>
@@ -79,6 +86,9 @@ export default {
       const pointsOfInterest = this.sharedState.initialData.results;
       const nearestLocationId = calcDistance(userPos, pointsOfInterest);
       this.setNearestLocation(nearestLocationId);
+    },
+    submit() {
+      this.calculateDistance();
     },
     setNearestLocation(id) {
       store.setNearestLocation(id);

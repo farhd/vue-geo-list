@@ -1,14 +1,14 @@
 <template>
   <div class="list">
-    <div>
-      <ul>
-        <li v-for="result in results" :key="result.id">
+    <b-container>
+      <b-row>
+        <b-col md="6" lg="4" v-for="result in sharedState.initialData.results" :key="result.id">
           <Card
             v-bind="result"
-            v-bind:success="result.id === nearestLocationId"/>
-        </li>
-      </ul>
-    </div>
+            v-bind:success="result.id === sharedState.nearestLocationId"/>
+        </b-col>
+      </b-row>
+    </b-container>
   </div>
 </template>
 
@@ -29,8 +29,7 @@ export default {
   name: 'List',
   data() {
     return {
-      results: store.state.initialData.results,
-      nearestLocationId: store.state.nearestLocationId,
+      sharedState: store.state,
     };
   },
 };

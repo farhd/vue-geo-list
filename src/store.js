@@ -7,7 +7,9 @@ export default {
     nearestLocationId: null,
   },
   setNearestLocation(id) {
-    if (this.debug) console.log('setNearestLocation triggered with', id);
+    if (this.debug) {
+      console.log('setNearestLocation triggered with', id);
+    }
     this.state.nearestLocationId = id;
   },
-}
+};
