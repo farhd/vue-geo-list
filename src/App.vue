@@ -18,13 +18,13 @@ export default {
   name: 'app',
   components: {
     GeoSearch,
-    List
+    List,
   },
   data() {
     return {
-      sharedState: store.state
-    }
-  }
+      sharedState: store.state,
+    };
+  },
 };
 </script>
 
@@ -53,5 +53,23 @@ li {
 }
 a {
   color: #42b983;
+}
+
+.error {
+  border-color: red;
+  background: #FDD;
+}
+
+.error:focus {
+  outline-color: #F99;
+}
+
+.valid {
+  border-color: #5A5;
+  background: #EFE;
+}
+
+.valid:focus {
+  outline-color: #8E8;
 }
 </style>

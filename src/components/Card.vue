@@ -7,10 +7,10 @@
             style="max-width: 20rem;"
             class="mb-2"
             @click="toggleShow">
+      <b-badge pill variant="info">{{type}}</b-badge>
       <p class="card-text" v-if="show">
         Some quick example text to build on the card title and make up the bulk of the card's content.
       </p>
-      <b-badge pill variant="info">{{type}}</b-badge>
     </b-card>
   </div>
 </template>
@@ -22,24 +22,26 @@ import 'vue-awesome/icons/spinner';
 
 export default {
   components: {
-    Icon
+    Icon,
   },
   props: ['title', 'type', 'success'],
   name: 'Card',
   data() {
     return {
-      show: false
+      show: false,
     };
   },
   methods: {
     toggleShow() {
       this.show = !this.show;
-    }
-  }
+    },
+  },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+  .card {
+    margin: 0 auto;
+  }
 </style>

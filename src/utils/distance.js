@@ -1,6 +1,4 @@
-export default calcDistance;
-
-function calcDistance(target, arrWithVals) {
+export default function calcDistance(target, arrWithVals) {
   const lat1 = target.lat;
   const long1 = target.long;
   const distances = arrWithVals.map((item) => {

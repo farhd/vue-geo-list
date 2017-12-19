@@ -24,7 +24,7 @@ import store from '../store';
 export default {
   components: {
     Icon,
-    Card
+    Card,
   },
   name: 'List',
   data() {
@@ -37,5 +37,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 </style>
