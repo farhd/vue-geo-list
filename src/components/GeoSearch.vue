@@ -2,6 +2,7 @@
   <form class="geo-search" @submit.prevent="submit">
     <b-container>
       <b-input-group class="mb-3">
+
         <b-input-group-addon>Location</b-input-group-addon>
 
         <b-form-input
@@ -11,7 +12,8 @@
           v-model="lat"
           v-bind:class="{error: $v.lat.$error, valid: $v.lat.$dirty && !$v.lat.$invalid}"
           @input="$v.lat.$touch"
-          />
+        />
+
         <b-form-input
           size="sm"
           placeholder="Longitude..."
@@ -19,7 +21,8 @@
           v-model="long"
           v-bind:class="{error: $v.long.$error, valid: $v.long.$dirty && !$v.long.$invalid}"
           @input="$v.long.$touch"
-          />
+        />
+
         <b-input-group-button>
           <b-button variant="outline-primary" @click="getGeoPos()">
             <icon name="location-arrow" v-if="!loading"></icon>
@@ -27,12 +30,27 @@
           </b-button>
           <b-button variant="outline-success" size="sm" @click="submit">Go</b-button>
         </b-input-group-button>
+
       </b-input-group>
+
       <div class="form-group__message" v-if="($v.lat.$dirty && !$v.lat.required) || ($v.long.$dirty && !$v.long.required)">Field is required</div>
       <div class="form-group__message" v-if="($v.lat.$dirty && !$v.lat.geoValidator) || ($v.long.$dirty && !$v.long.geoValidator)">
         Should be in signed degrees format (DDD.dddd)<br>
         s. <a href="http://www.geomidpoint.com/latlon.html" target="_empty">Latitude and longitude formats</a>
       </div>
+
+      <hr>
+
+      <div>
+        <b-form-group label="Type">
+          <b-form-checkbox-group @input="typeChange()" id="type" name="type" v-model="sharedState.types">
+            <b-form-checkbox value="culture">Culture</b-form-checkbox>
+            <b-form-checkbox value="business">Business</b-form-checkbox>
+            <b-form-checkbox value="party">Party</b-form-checkbox>
+          </b-form-checkbox-group>
+        </b-form-group>
+      </div>
+
     </b-container>
   </form>
 </template>
@@ -84,7 +102,7 @@ export default {
     },
     calculateDistance() {
       const userPos = { lat: this.lat, long: this.long };
-      const pointsOfInterest = this.sharedState.initialData.results;
+      const pointsOfInterest = store.getData();
       const nearestLocationId = calcDistance(userPos, pointsOfInterest);
       this.setNearestLocation(nearestLocationId);
     },
@@ -102,6 +120,11 @@ export default {
     },
     setNearestLocation(id) {
       store.setNearestLocation(id);
+    },
+    typeChange() {
+      if (this.$v.lat.$dirty && this.$v.long.$dirty) {
+        this.submit();
+      }
     },
   },
 };

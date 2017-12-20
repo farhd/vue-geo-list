@@ -2,7 +2,7 @@
   <div class="list">
     <b-container>
       <b-row>
-        <b-col md="6" lg="4" v-for="result in sharedState.initialData.results" :key="result.id">
+        <b-col md="6" lg="4" v-for="result in store.getData()" :key="result.id">
           <Card
             v-bind="result"
             v-bind:success="result.id === sharedState.nearestLocationId"/>
@@ -30,6 +30,7 @@ export default {
   data() {
     return {
       sharedState: store.state,
+      store,
     };
   },
 };
